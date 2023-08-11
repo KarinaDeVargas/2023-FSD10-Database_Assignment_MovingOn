@@ -35,8 +35,8 @@ create table Customers
 (
 	CustID int auto_increment not null,
     CompanyName varchar(50) null,
-    CustFN varchar(20) not null,
-    CustLN varchar(20) not null,
+    CustFN varchar(30) not null,
+    CustLN varchar(30) not null,
     Address varchar(40) not null,
     City varchar(30) not null,
     State varchar(2) not null,
@@ -76,8 +76,8 @@ create table Employees
     Memo LONGTEXT,
     Phone varchar(15) null,
     Cell varchar(15) not null,
-    Salary decimal(14,9) null,
-    HourlyRate decimal(14,9) null,
+    Salary decimal(14,9) null, -- It can be null if Employee is payed by hour and it does not have a fixed salary
+    HourlyRate decimal(14,9) null,  -- It can be null if Employee has a year based salary and it is not payed by hour
     Review datetime,
 	constraint pk_Employees primary key clustered (EmpID asc)
 )
@@ -99,7 +99,7 @@ create table Drivers
     DriverFN varchar(30) not null,
     DriverMN varchar(30) null,
     DriverLN varchar(30) not null,
-    WarehouseID varchar(5) not null,
+    -- WarehouseID varchar(5) not null,
     SSN varchar(9) not null,
     DOB datetime,
     StartDate datetime,

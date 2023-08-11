@@ -51,34 +51,34 @@ alter table Employees
 SHOW FULL COLUMNS FROM Employees;
 SHOW FULL COLUMNS FROM Warehouses;
 
-/* 2. Add foreign key constraint(s) between Drivers and Warehouses tables */
+/* 2. Add foreign key constraint(s) between Drivers and Warehouses tables 
 alter table Drivers
 	add constraint fk_Drivers_Warehouses foreign key (WarehouseID)
 		references Warehouses(WarehouseID)
-;
+;*/ -- Not using Warehouse in Drivers Table
 
-/* 3. Add foreign key constraint(s) between JobDetails and Vehicles tables */    
+/* 2. Add foreign key constraint(s) between JobDetails and Vehicles tables */    
 alter table JobDetails
     add constraint fk_JobDetails_Vehicles 
 		foreign key (VehicleID) 
 		references Vehicles(VehicleID)
 ;
 
-/* 4. Add foreign key constraint(s) between JobDetails and Drivers tables */
+/* 3. Add foreign key constraint(s) between JobDetails and Drivers tables */
 alter table JobDetails
     add constraint fk_JobDetails_Drivers 
 		foreign key (DriverID) 
 		references Drivers(DriverID)
 ;
 
-/* 5. Add foreign key constraint(s) between JobOrders and Customers tables */
+/* 4. Add foreign key constraint(s) between JobOrders and Customers tables */
 alter table JobOrders
     add constraint fk_JobOrders_Customers
 		foreign key (CustID) 
 		references Customers(CustID)
 ;
 
-/* 6. Add foreign key constraint(s) between UnitRentals and Customers tables */
+/* 5. Add foreign key constraint(s) between UnitRentals and Customers tables */
 alter table UnitRentals
     add constraint fk_UnitRentals_Customers
 		foreign key (CustID) 
@@ -91,14 +91,11 @@ alter table UnitRentals
 		references StorageUnits(UnitID)
 ;
 
-/* 7. Add foreign key constraint(s) between StorageUnits and Warehouses tables ???? - I am not too sure about this one */
+/* 6. Add foreign key constraint(s) between StorageUnits and Warehouses tables ???? - I am not too sure about this one */
 -- 
 
 
-/* 8. Add foreign key constraint(s) between xx and xx tables */
- --
-
-/* 9. Add foreign key constraint(s) between Employees and Positions tables */
+/* 7. Add foreign key constraint(s) between Employees and Positions tables */
 alter table Employees
     add constraint fk_Employees_Positions
 		foreign key (PositionID) 
