@@ -179,12 +179,13 @@ describe Vehicles
 /* *****	Table No. 7 - JobDetails   ***** */
 create table JobDetails
 (
-	JobID int auto_increment not null,
+	JobDetailID int auto_increment not null,  -- We've changed the name, only for our understanding 
+    JobOrderID int not null,
     VehicleID varchar(10) not null,
     DriverID int not null,
     MileageActual int not null,
     WeightActual int not null,
-    constraint pk_JobDetails primary key (JobID asc)
+    constraint pk_JobDetails primary key (JobDetailID asc)
 )
 ;
 

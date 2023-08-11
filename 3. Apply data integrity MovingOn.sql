@@ -59,7 +59,11 @@ alter table JobDetails
 		references Vehicles(VehicleID),
 	add constraint fk_JobDetails_Drivers 
 		foreign key (DriverID) 
-		references Drivers(DriverID)
+		references Drivers(DriverID),
+	add constraint fk_JobDetails_JobOrders 
+		foreign key (JobOrderID) 
+		references JobOrders(JobOrderID)
+        
 ;
 
 /* 3. Add foreign key constraint(s) between JobOrders and Customers tables */
