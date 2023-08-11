@@ -42,7 +42,7 @@ create table Customers
     State varchar(2) not null,
     ZIP varchar(10) not null,
     Phone varchar(15) not null,
-    Balance decimal(14.9) null,
+    Balance decimal(14,9) null,
 	constraint pk_Customers primary key clustered (CustID asc)
 )
 ;
