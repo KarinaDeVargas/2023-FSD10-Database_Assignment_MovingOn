@@ -82,22 +82,21 @@ alter table JobOrders
 alter table UnitRentals
     add constraint fk_UnitRentals_Customers
 		foreign key (CustID) 
-		references Customers(CustID)
-;
-
-/* 7. Add foreign key constraint(s) between UnitRentals and Warehouses tables */
-alter table UnitRentals
-    add constraint fk_UnitRentals_Warehouses
+		references Customers(CustID),
+	add constraint fk_UnitRentals_Warehouses
 		foreign key (WarehouseID) 
-		references Warehouses(WarehouseID)
-;
-
-/* 8. Add foreign key constraint(s) between UnitRentals and StorageUnits tables */
-alter table UnitRentals
-    add constraint fk_UnitRentals_StorageUnits
+		references Warehouses(WarehouseID),
+	add constraint fk_UnitRentals_StorageUnits
 		foreign key (UnitID) 
 		references StorageUnits(UnitID)
 ;
+
+/* 7. Add foreign key constraint(s) between StorageUnits and Warehouses tables ???? - I am not too sure about this one */
+-- 
+
+
+/* 8. Add foreign key constraint(s) between xx and xx tables */
+ --
 
 /* 9. Add foreign key constraint(s) between Employees and Positions tables */
 alter table Employees
@@ -118,18 +117,7 @@ I have stopped here - Ass Karina
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+-- test  git hub
 
 
 
