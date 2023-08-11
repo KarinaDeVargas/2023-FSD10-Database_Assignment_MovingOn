@@ -107,7 +107,7 @@ create table Drivers
     City varchar(30) not null,
     State varchar(2) not null,
     ZIP varchar(10) not null,
-    Position int not null, -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
+    PositionID int default '1', -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
     Phone varchar(15) null,
     Cell varchar(15) not null,
     MileageRate decimal(19,4) not null,

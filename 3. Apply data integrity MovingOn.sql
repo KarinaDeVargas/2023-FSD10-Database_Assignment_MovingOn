@@ -112,6 +112,7 @@ alter table JobOrders
 	add constraint ck_MoveDate_JobOrders check (MoveDate > curdate()+1) -- Moving date must be at least 1 day from todays date
 ;
 */
+
 /* Unique: Create validation rules as necessary to ensure that users enter consistent, complete, and accurate data in the tables */
 -- Create unique values for table Drivers
 alter table Drivers
@@ -123,10 +124,10 @@ alter table Employees
 	add constraint uq_SSN_Employees unique (SSN)
 ;
 
-/*
--- default
 
-*/
+
+
+
 
 
 
