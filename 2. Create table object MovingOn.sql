@@ -1,5 +1,5 @@
 /*
-Purpose: xxxxxxx.
+Purpose: Creating table objects in MovingOn_team3 database
 */
 
 /* Script Date: August 10, 2023
