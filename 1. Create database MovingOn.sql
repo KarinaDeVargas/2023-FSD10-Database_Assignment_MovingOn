@@ -1,5 +1,5 @@
 /*
-Purpose: To create database to manage employee, driver, customer, and order data.
+Purpose:  To create database to manage employee, driver, customer, and order data..
 */
 
 /* Script Date: August 10, 2023
