@@ -42,7 +42,7 @@ create table Customers
     State varchar(2) not null,
     ZIP varchar(10) not null,
     Phone varchar(15) not null,
-    Balance decimal(14,9) null,
+    Balance decimal(19,4) null,
 	constraint pk_Customers primary key clustered (CustID asc)
 )
 ;
@@ -72,13 +72,13 @@ create table Employees
     City varchar(30) not null,
     State varchar(2) not null,
     ZIP varchar(10) not null,
-    PositionID smallint not null,
+    PositionID int not null,
     Memo LONGTEXT,
     Phone varchar(15) null,
     Cell varchar(15) not null,
-    Salary decimal(14,9) null, -- It can be null if Employee is payed by hour and it does not have a fixed salary
-    HourlyRate decimal(14,9) null,  -- It can be null if Employee has a year based salary and it is not payed by hour
-    Review datetime,
+    Salary decimal(19,4) null, -- It can be null if Employee is payed by hour and it does not have a fixed salary
+    HourlyRate decimal(19,4) null,  -- It can be null if Employee has a year based salary and it is not payed by hour
+    Review datetime null,
 	constraint pk_Employees primary key clustered (EmpID asc)
 )
 ;
@@ -99,7 +99,6 @@ create table Drivers
     DriverFN varchar(30) not null,
     DriverMN varchar(30) null,
     DriverLN varchar(30) not null,
-    -- WarehouseID varchar(5) not null,
     SSN varchar(9) not null,
     DOB datetime,
     StartDate datetime,
@@ -108,11 +107,11 @@ create table Drivers
     City varchar(30) not null,
     State varchar(2) not null,
     ZIP varchar(10) not null,
-    Position smallint not null, -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
+    Position int not null, -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
     Phone varchar(15) null,
     Cell varchar(15) not null,
-    MileageRate decimal(14,9) not null,
-    Review datetime,
+    MileageRate decimal(19,4) not null,
+    Review datetime null,
     DrivingRecord varchar(1) not null,
     constraint pk_Drivers primary key clustered (DriverID asc)
 )
@@ -130,7 +129,7 @@ describe Drivers
 /* *****	Table No. 4 - Lookup Table - Positions   ***** */
 create table Positions
 (
-	PositionID smallint auto_increment not null,
+	PositionID int auto_increment not null,
     Title varchar(30) not null,
     constraint pk_Positions primary key (PositionID asc)
 )
@@ -180,7 +179,7 @@ describe Vehicles
 /* *****	Table No. 7 - JobDetails   ***** */
 create table JobDetails
 (
-	JobID tinyint auto_increment not null,
+	JobID int auto_increment not null,
     VehicleID varchar(10) not null,
     DriverID int not null,
     MileageActual int not null,
@@ -200,14 +199,14 @@ describe JobDetails
 /* *****	Table No. 8 - JobOrders   ***** */
 create table JobOrders
 (
-	JobOrderID tinyint auto_increment not null, -- I've changed the name, only for our understanding
+	JobOrderID int auto_increment not null, -- We've changed the name, only for our understanding
     CustID int not null,
     MoveDate datetime not null,
-    FromAddress varchar(40) not null,
+    FromAddress varchar(50) not null,
     FromCity varchar(30) not null,
     FromState varchar(2) not null,
     FromZIP varchar(10) not null,
-	ToAddress varchar(40) not null,
+	ToAddress varchar(50) not null,
     ToCity varchar(30) not null,
     ToState varchar(2) not null,
     ToZIP varchar(10) not null,
@@ -231,42 +230,24 @@ describe JobOrders
 /* *****	Table No. 9 - StorageUnits   ***** */
 create table StorageUnits
 (
-	UnitID int not null,
+	StorageUnitID int auto_increment not null, -- We've created the StorageUnitID to follow the DB source
+    UnitRentalID int not null,
     WarehouseID varchar(5) not null,
     UnitSize varchar(10) not null,
-    Rent decimal(14,9) not null,    
-    constraint pk_StorageUnits primary key clustered 
-		(
-			-- composite primary key
-            UnitID asc,
-            WarehouseID asc
-		)   
+    Rent decimal(19,4) not null,    
+    constraint pk_StorageUnits primary key clustered (StorageUnitID)   
 )
-;
-
-show columns
-from StorageUnits
-;
-
--- or using describe command
-describe StorageUnits
 ;
 
 /* *****	Table No. 10 - UnitRentals   ***** */
 create table UnitRentals
 (
-	CustID int not null,
-    WarehouseID varchar(5) not null,
-    UnitID int not null,
+	UnitRentalID int auto_increment not null, -- We've change the name of the PK for a better understanding
+    StorageUnitID int  not null,
+    CustID int not null,
     DateIn datetime,
     DateOut datetime,
-    constraint pk_UnitRentals primary key clustered 
-		(
-			-- composite primary key
-            CustID asc,
-            WarehouseID asc,
-            UnitID asc            
-		)
+    constraint pk_UnitRentals primary key clustered (UnitRentalID)
 )
 ;
 

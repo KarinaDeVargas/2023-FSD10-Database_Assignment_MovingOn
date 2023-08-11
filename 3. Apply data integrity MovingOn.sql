@@ -41,88 +41,92 @@ Constraint Types:
 
 /* add froeign key constraint(s) to all the table */
 
-/* 1. Add foreign key constraint(s) between Employees and Warehouses tables */   
+/* 1. Add foreign key constraint(s) between Employees and Warehouses and Positions tables */   
 alter table Employees
     add constraint fk_Employees_Warehouses 
 		foreign key (WarehouseID) 
-		references Warehouses (WarehouseID)
+		references Warehouses (WarehouseID),
+	add constraint fk_Employees_Positions
+		foreign key (PositionID) 
+		references Positions(PositionID)        
 ; 
 
-SHOW FULL COLUMNS FROM Employees;
-SHOW FULL COLUMNS FROM Warehouses;
 
-/* 2. Add foreign key constraint(s) between Drivers and Warehouses tables 
-alter table Drivers
-	add constraint fk_Drivers_Warehouses foreign key (WarehouseID)
-		references Warehouses(WarehouseID)
-;*/ -- Not using Warehouse in Drivers Table
-
-/* 2. Add foreign key constraint(s) between JobDetails and Vehicles tables */    
+/* 2. Add foreign key constraint(s) between JobDetails and Vehicles and Drivers tables */    
 alter table JobDetails
     add constraint fk_JobDetails_Vehicles 
 		foreign key (VehicleID) 
-		references Vehicles(VehicleID)
-;
-
-/* 3. Add foreign key constraint(s) between JobDetails and Drivers tables */
-alter table JobDetails
-    add constraint fk_JobDetails_Drivers 
+		references Vehicles(VehicleID),
+	add constraint fk_JobDetails_Drivers 
 		foreign key (DriverID) 
 		references Drivers(DriverID)
 ;
 
-/* 4. Add foreign key constraint(s) between JobOrders and Customers tables */
+/* 3. Add foreign key constraint(s) between JobOrders and Customers tables */
 alter table JobOrders
     add constraint fk_JobOrders_Customers
 		foreign key (CustID) 
 		references Customers(CustID)
 ;
 
-/* 5. Add foreign key constraint(s) between UnitRentals and Customers tables */
+/* 4. Add foreign key constraint(s) between UnitRentals and Customers and Warehouses and StorageUnits tables */
 alter table UnitRentals
     add constraint fk_UnitRentals_Customers
 		foreign key (CustID) 
 		references Customers(CustID),
-	add constraint fk_UnitRentals_Warehouses
-		foreign key (WarehouseID) 
-		references Warehouses(WarehouseID),
 	add constraint fk_UnitRentals_StorageUnits
-		foreign key (UnitID) 
-		references StorageUnits(UnitID)
+		foreign key (StorageUnitID) 
+		references StorageUnits(StorageUnitID)
 ;
 
-/* 6. Add foreign key constraint(s) between StorageUnits and Warehouses tables ???? - I am not too sure about this one */
--- 
+/* 5. Add foreign key constraint(s) between StorageUnits and Warehouses tables ???? - I am not too sure about this one */
+alter table StorageUnits
+	add constraint fk_StorageUnits_Warehouses
+		foreign key (WarehouseID) 
+		references Warehouses(WarehouseID)
+;
 
 
-/* 7. Add foreign key constraint(s) between Employees and Positions tables */
+/* Check: Create validation rules as necessary to ensure that users enter consistent, complete, and accurate data in the tables */
+-- Create check for table Drivers
+alter table drivers 
+	add constraint ck_StartDate_EndDate_Drvier check (EndDate >= StartDate)
+;
+
+-- Create check for table UnitRentals
+alter table UnitRentals 
+	add constraint ck_DateIn_DateOut_UnitRentals check (DateOut >= DateIn)
+;
+
+-- Create check for table Employees
+alter table Employees 
+	add constraint ck_StartDate_EndDate_Employees check (EndDate >= StartDate)
+;
+
+/* -- Create check for table JobOrders
+alter table JobOrders 
+	add constraint ck_MoveDate_JobOrders check (MoveDate > curdate()+1) -- Moving date must be at least 1 day from todays date
+;
+*/
+/* Unique: Create validation rules as necessary to ensure that users enter consistent, complete, and accurate data in the tables */
+-- Create unique values for table Drivers
+alter table Drivers
+	add constraint uq_SSN_Drivers unique (SSN)
+;
+
+-- Create unique values for table Employees
 alter table Employees
-    add constraint fk_Employees_Positions
-		foreign key (PositionID) 
-		references Positions(PositionID)
+	add constraint uq_SSN_Employees unique (SSN)
 ;
 
+/*
+-- default
 
-
-/* 
-===============================
-===============================
-I have stopped here - Ass. Karina
-===============================
-===============================
 */
 
-/* Assignment STATUS
 
-Missing Steps
 
-B. Create validation rules as necessary to ensure that users enter consistent, complete, and accurate data in the tables.
-
-c. During the discovery phase (database analysis and logical design), David and Robert gave you some important information that you must consider in your table designs.
-
-D. Find out if we need any unique constraint and  set all unique constraints in all tables
-
-E. Find out if we need any default value and set all default values in all tables
+/*
 
 6. Add records in each table. In some cases, you might need to import data stored in an Excel workbook into a table. If you have not created the table in the database, you can import the data and create the table at the same time. Robert received some Excel files from David containing data that he needs to store in the database. One of those files, Employee.xlsx (located in the Assignment 2 Data folder), contains data about the employees. Robert decides to create tblEmployee table by importing the data from the Employee.xlsx Excel file.
 
