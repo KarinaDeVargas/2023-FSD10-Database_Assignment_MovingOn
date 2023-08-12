@@ -13,10 +13,10 @@ use MovingOn_Team3
 
 /* load data from external csv file */
 -- Load Data from Warehouses Source
-load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/MovinOn_Data_Source/movingon_data_csv/Warehouses_CSV.csv'
+load data infile '/usr/local/mysql/data/movingon_data_csv/Warehouses_CSV.csv'
 into table Warehouses
 fields terminated by ','
-lines terminated by '\r\n'
+lines terminated by '\n'
 ignore 1 rows
 ;
 
@@ -25,22 +25,10 @@ from Warehouses
 ;
 
 -- Load Data from Positions Source
-load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/MovinOn_Data_Source/movingon_data_csv/Positions_CSV.csv'
+load data infile '/usr/local/mysql/data/movingon_data_csv/Positions_CSV.csv'
 into table Positions
 fields terminated by ','
-lines terminated by '\r\n'
-ignore 1 rows
-;
-
-select *
-from Positions
-;
-
--- Load Data from Positions Source
-load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/MovinOn_Data_Source/movingon_data_csv/Positions_CSV.csv'
-into table Positions
-fields terminated by ','
-lines terminated by '\r\n'
+lines terminated by '\n'
 ignore 1 rows
 ;
 
@@ -49,10 +37,10 @@ from Positions
 ;
 
 -- Load Data from Employees Source
-load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/MovinOn_Data_Source/Employees_CSV.csv'
+load data infile '/usr/local/mysql/data/movingon_data_csv/Employees.csv'
 into table Employees
 fields terminated by ','
-lines terminated by '\r\n'
+lines terminated by '\n'
 ignore 1 rows
 ;
 
