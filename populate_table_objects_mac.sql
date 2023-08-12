@@ -37,7 +37,7 @@ from Positions
 ;
 
 -- Load Data from Employees Source
-load data infile '/usr/local/mysql/data/movingon_data_csv/Employees.csv'
+load data infile '/usr/local/mysql/data/movingon_data_csv/Employees_CSV.csv'
 into table Employees
 fields terminated by ','
 lines terminated by '\n'
