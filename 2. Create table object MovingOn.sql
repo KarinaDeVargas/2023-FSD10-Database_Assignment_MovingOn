@@ -107,7 +107,7 @@ create table Drivers
     City varchar(30) not null,
     State varchar(2) not null,
     ZIP varchar(10) not null,
-    Position int not null, -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
+    PositionID int default '1', -- I think it is important to create this Attribute and have it default as the position related to "Driver", then we can use it in the queries 
     Phone varchar(15) null,
     Cell varchar(15) not null,
     MileageRate decimal(19,4) not null,
@@ -179,12 +179,13 @@ describe Vehicles
 /* *****	Table No. 7 - JobDetails   ***** */
 create table JobDetails
 (
-	JobID int auto_increment not null,
+	JobDetailID int auto_increment not null,  -- We've changed the name, only for our understanding 
+    JobOrderID int not null,
     VehicleID varchar(10) not null,
     DriverID int not null,
     MileageActual int not null,
     WeightActual int not null,
-    constraint pk_JobDetails primary key (JobID asc)
+    constraint pk_JobDetails primary key (JobDetailID asc)
 )
 ;
 
@@ -262,6 +263,6 @@ describe UnitRentals
 show tables
 ;
 
-
+/* test my git hub*/
 
 

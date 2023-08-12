@@ -59,7 +59,11 @@ alter table JobDetails
 		references Vehicles(VehicleID),
 	add constraint fk_JobDetails_Drivers 
 		foreign key (DriverID) 
-		references Drivers(DriverID)
+		references Drivers(DriverID),
+	add constraint fk_JobDetails_JobOrders 
+		foreign key (JobOrderID) 
+		references JobOrders(JobOrderID)
+        
 ;
 
 /* 3. Add foreign key constraint(s) between JobOrders and Customers tables */
@@ -108,6 +112,7 @@ alter table JobOrders
 	add constraint ck_MoveDate_JobOrders check (MoveDate > curdate()+1) -- Moving date must be at least 1 day from todays date
 ;
 */
+
 /* Unique: Create validation rules as necessary to ensure that users enter consistent, complete, and accurate data in the tables */
 -- Create unique values for table Drivers
 alter table Drivers
@@ -119,10 +124,10 @@ alter table Employees
 	add constraint uq_SSN_Employees unique (SSN)
 ;
 
-/*
--- default
 
-*/
+
+
+
 
 
 
