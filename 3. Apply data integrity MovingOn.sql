@@ -102,10 +102,6 @@ alter table UnitRentals
 	add constraint ck_DateIn_DateOut_UnitRentals check (DateOut >= DateIn)
 ;
 
--- Create check for table Employees
-alter table Employees 
-	add constraint ck_StartDate_EndDate_Employees check (EndDate >= StartDate)
-;
 
 /* -- Create check for table JobOrders
 alter table JobOrders 

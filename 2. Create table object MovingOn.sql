@@ -73,12 +73,12 @@ create table Employees
     State varchar(2) not null,
     ZIP varchar(10) not null,
     PositionID int not null,
-    Memo LONGTEXT,
+	Review datetime null,
     Phone varchar(15) null,
     Cell varchar(15) not null,
     Salary decimal(19,4) null, -- It can be null if Employee is payed by hour and it does not have a fixed salary
     HourlyRate decimal(19,4) null,  -- It can be null if Employee has a year based salary and it is not payed by hour
-    Review datetime null,
+	Memo LONGTEXT,
 	constraint pk_Employees primary key clustered (EmpID asc)
 )
 ;

@@ -41,7 +41,7 @@ from Positions
 -- Load Data from Employees Source
 load data infile '/usr/local/mysql/data/movingon_data_csv/Employees.csv'
 into table Employees
-FIELDS OPTIONALLY ENCLOSED BY '"' TERMINATED BY ','
+fields terminated by ','
 lines terminated by '\n'
 ignore 1 rows
 ;
