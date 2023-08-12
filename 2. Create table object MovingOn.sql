@@ -65,9 +65,9 @@ create table Employees
     EmpLN varchar(30) not null,
     WarehouseID varchar(5) not null,
     SSN varchar(9) not null,
-    DOB datetime,
-    StartDate datetime,
-    EndDate datetime,
+    DOB datetime not null,
+    StartDate datetime not null,
+    EndDate datetime null,
     Address varchar(40) not null,
     City varchar(30) not null,
     State varchar(2) not null,
@@ -100,9 +100,9 @@ create table Drivers
     DriverMN varchar(30) null,
     DriverLN varchar(30) not null,
     SSN varchar(9) not null,
-    DOB datetime,
-    StartDate datetime,
-    EndDate datetime,
+    DOB datetime not null,
+    StartDate datetime not null,
+    EndDate datetime null,
     Address varchar(40) not null,
     City varchar(30) not null,
     State varchar(2) not null,
@@ -232,8 +232,7 @@ describe JobOrders
 create table StorageUnits
 (
 	StorageUnitID int auto_increment not null, -- We've created the StorageUnitID to follow the DB source
-    UnitRentalID int not null,
-    WarehouseID varchar(5) not null,
+	WarehouseID varchar(5) not null,
     UnitSize varchar(10) not null,
     Rent decimal(19,4) not null,    
     constraint pk_StorageUnits primary key clustered (StorageUnitID)   
@@ -246,8 +245,8 @@ create table UnitRentals
 	UnitRentalID int auto_increment not null, -- We've change the name of the PK for a better understanding
     StorageUnitID int  not null,
     CustID int not null,
-    DateIn datetime,
-    DateOut datetime,
+    DateIn datetime not null,
+    DateOut datetime null,
     constraint pk_UnitRentals primary key clustered (UnitRentalID)
 )
 ;
@@ -263,6 +262,5 @@ describe UnitRentals
 show tables
 ;
 
-/* test my git hub*/
 
 

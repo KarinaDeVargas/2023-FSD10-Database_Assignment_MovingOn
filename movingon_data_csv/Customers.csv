@@ -1,5 +1,5 @@
-﻿CustID,CompanyName,ContactFirst,ContactLast,Address,City,State,Zip,Phone,Balance
-1,Piazza Real Estate,Terry,Ramadani,1897 Gary Ave,Spokane,WA,99204,(509) 324-8213,0
+﻿CustID,CompanyName,CustFN,CustLN,Address,City,State,Zip,Phone,Balance
+1,Piazza Real Estate,Terry,Ramadani,1897 Gary Ave,Spokane,DD,99204,(509) 324-8213,0
 2,McDonald Construction,Terese,Spredemann,5976 14th Ave NW,Portland,OR,97233,(503) 798-5646,0
 3,Douglas Law Firm,Susan,Suarez,375 56th St,Spokane,WA,99245,(509) 857-2465,0
 4,,Felicia,Pursifull,61 Virginian Ln,Jackson Hole,WY,83001,(307) 224-9633,0
@@ -7,10 +7,10 @@
 6,Woodman Furniture,Jeff,Booker,156 Fourth St SW,Seattle,WA,98145,(206) 354-6785,0
 7,,Zarra,Thomas,9390 Marilu Rd,Jackson Hole,WY,83001,(307) 555-6547,0
 8,,Deidre,Haferson,201 North River Dr W,Spokane,WA,99201,(509) 648-3132,0
-9,Limited Partners,Yeon,Wung,14588 25th St NW,Spokane,WA,99203,(509) 487-3574,0
-10,"Brody & Karnall, PC",Darla,Barbar,6755 Forestview Dr W,Portland,OR,97215,(503) 546-5465,0
-11,,Brandy,Jonaitis,955 Simon Ln,Jackson Hole,WY,83003,(307) 541-2216,0
-12,Partners in Health,Josephine,Miazga,6133 Highland Park,Spokane,WA,99203,(509) 324-6542,0
+9,,Smith,,Roselina,Spokane,WA,99205,(509) 232-4682,0
+10,,Pyo,,Mary,Seattle,WA,98102,(206) 334-6564,0
+11,,Scott,,Teresa,Spokane,WA,99203,(509) 432-3546,0
+12,,Garth,,Walter,Jackson Hole,WY,83001,(307) 541-2231,0
 13,County Booksellers,Roselina,Smith,655 Ponderosa Dr,Jackson Hole,WY,83005,(307) 685-3211,0
 14,,Mary,Pyo,8534 Klondike Lane NW,Seattle,WA,98152,(206) 345-7122,0
 15,Jenkins Publishing Company,Teresa,Scott,604 Sound Ave W,Spokane,WA,99209,(509) 374-2154,0
