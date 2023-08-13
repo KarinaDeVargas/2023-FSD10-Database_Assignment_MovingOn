@@ -16,14 +16,6 @@ an additional list. Create this list for Darnell, and include all relevant emplo
 Save this script as 3_DriversForTermination.
 */
 
--- update table drivers to set one driving record as ’F‘
-UPDATE drivers
-SET DrivingRecord = 'F'
-WHERE DriverID = 2;
-
-select *
-from drivers
-;
 -- script 3_DriversForTermination
 select D.DriverID as 'Driver ID', concat_ws(' ', D.DriverFN, coalesce(D.DriverMN, ''), 
        D.DriverLN) as 'Driver Name', D.Phone as 'Phone No', D.Cell as 'Cell Phone', 
